@@ -7,7 +7,14 @@ CREATE TABLE burgers
 (
 	id int NOT NULL AUTO_INCREMENT,
 	burger_name varchar(255) NOT NULL,
-    devour BOOLEAN DEFAULT false,
+    devour BOOLEAN NOT NULL DEFAULT false,
+	
 	PRIMARY KEY (id)
 );
 
+
+INSERT INTO burgers (burger_name, devour) VALUES ('BLT', false);
+INSERT INTO burgers (burger_name, devour) VALUES ('Turkey Cranberyy', true);
+INSERT INTO burgers (burger_name, devour) VALUES ('Classic', false);
+
+SELECT * FROM burgers;
