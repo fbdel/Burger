@@ -1,6 +1,6 @@
 CREATE DATABASE burgers_db;
 
-USE burgers_db;
+USE pmaxstf3k4mhcmrw;
 
 
 CREATE TABLE burgers
@@ -12,9 +12,4 @@ CREATE TABLE burgers
 	PRIMARY KEY (id)
 );
 
-
-INSERT INTO burgers (burger_name, devour) VALUES ('BLT', false);
-INSERT INTO burgers (burger_name, devour) VALUES ('Turkey Cranberyy', true);
-INSERT INTO burgers (burger_name, devour) VALUES ('Classic', false);
-
-SELECT * FROM burgers;
+ 

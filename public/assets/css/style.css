@@ -1,0 +1,58 @@
+/* font-family: 'Concert One', cursive;
+font-family: 'Lilita One', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Monoton', cursive; */
+
+
+body {
+  background-image: url("../images/tabletop.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+    /* background-color: rgba(212, 100, 9, 0.972); */
+
+}
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #faebd7;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.burger-block-list, .burger-block-eaten, .image-div{
+  display:inline;
+  float: left;
+}
+.create-div{
+  float: none;
+  margin: auto;
+}
+
+.h1 {
+  text-align: center;
+  
+}
+
+#title{
+  background-color: red;
+  text-align: center;
+  font-family: 'Sigmar One', cursive;
+
+}
+
+.content-body{
+  /* background-color: rgba(224, 199, 54, 0.972); */
+  background-color: lightblue;
+}

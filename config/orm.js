@@ -1,5 +1,5 @@
+// Import MySQL connection.
 var connection = require("../config/connection.js");
-
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -14,7 +14,7 @@ function printQuestionMarks(num) {
     }
 
     return arr.toString();
-}
+};
 
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
@@ -33,20 +33,15 @@ function objToSql(ob) {
             // e.g. {sleepy: true} => ["sleepy=true"]
             arr.push(key + "=" + value);
         }
-    }
+    };
 
     // translate array of strings to a single comma-separated string
     return arr.toString();
-}
-
-// selectAll();
-// insertOne();
-// updateOne();
-
+};
 
 // Object for all our SQL statement functions.
 var orm = {
-    selectAll: function (tableInput, cb) {
+    all: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
@@ -101,54 +96,12 @@ var orm = {
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
-            }
+            };
 
             cb(result);
         });
     }
 };
 
-
-
+// Export the orm object for the model (burger.js).
 module.exports = orm;
-
-
-
-
-
-
-
-// var orm = {
-//     selectAll: function (table, cb) {
-//         var queryString = "SELECT * FROM " + table + ";";
-//         connection.query(queryString, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             };
-//             cb(result);
-//         });
-//     },
-//     insertOne: function (table, cols, vals, cb) {
-//         var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(vals.length) + ")";
-//         console.log(queryString);
-
-//         connection.query(queryString, vals, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//             cb(result);
-//         });
-//     },
-//     updateOne: function (table, objectColVals, condition, cb) {
-//         var queryString = "UPDATE " + table + " SET " + objToSql(objectColVals) + " WHERE " + condition;
-//         console.log(queryString);
-
-//         connection.query(queryString, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             };
-//             cb(result);
-//         });
-//     }
-// };
-

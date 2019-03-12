@@ -1,82 +1,51 @@
-<h1>Burgers!</h1>
+<h1 id="title">Eat-Da-Burger App!</h1>
+<div class="content-body">
+  <div class="burger-block-list">
+    <h2>List of Burgers!</h2>
 
-<h2>Burgers that are not devoured!</h2>
+    <ul>
+      {{#each cats}}
+      {{#if sleepy}}
+      {{> cats/cat-block sleep=false}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
 
-<ul>
-    {{#each burgers}}
-    {{#unless devour}}
-    {{> burgers/burger-block devour=true}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Burgers that have been devoured!</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#if devour}}
-    {{> burgers/burger-block devour=false}}
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="ca">Burger name:</label>
-        <input type="text" id="ca" name="burger_name">
+  <div class="image-div">
+    <img src="./assets/images/burger2.jpg" alt="Burger Image" height="270" width="270">
+    <div class="create-div">
+      <h2>Add a Burger</h2>
+      <form class="create-form">
+    
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+    
+        <div class="form-group">
+          <label for="sleepy">Has the burger been eaten Yet?</label><br>
+          <input type="radio" name="sleepy" value="1" checked> Not Yet!<br>
+          <input type="radio" name="sleepy" value="0"> Yup, it was yummy!
+        </div>
+    
+        <button type="submit">Add Burger</button>
+      </form>
     </div>
-
-    <div class="form-group">
-        <label for="devour">Devour?</label><br>
-        <input type="radio" name="devour" value="1" checked> Devour!<br>
-        <input type="radio" name="devour" value="0"> Not Eaten
-    </div>
-
-    <button type="submit">Add Burger</button>
-</form>
+  </div>
+  {{!-- Burger/public/assets/images/Burger.jpeg --}}
 
 
 
+  <div class="burger-block-eaten">
+    <h2>Devoured Burgers!</h2>
+    <ul>
+      {{#each cats}}
+      {{#unless sleepy}}
+      {{> cats/cat-block sleep=true}}
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
 
-
-
-
-<div class="row">
-    <div class="col">
-        <h2 class="text-center">Ready</h2>
-        <ul class="list-group list-group-flush">
-            {{#each burgers}}
-            {{#unless devoured}}
-            {{> burgers/burger-block devour=true}}
-            {{/unless}}
-            {{/each}}
-        </ul>
-    </div>
-    <div class="col">
-        <h2 class="text-center">All Gone</h2>
-        <ul class="list-group list-group-flush">
-            {{#each burgers}}
-            {{#if devoured}}
-            {{> burgers/burger-block devour=false}}
-            {{/if}}
-            {{/each}}
-        </ul>
-    </div>
 </div>
-<br />
-<div class="row">
-    <div class="col">
-        <h3 class="text-center">Add a Burger</h3>
-        <form class="create-form">
-            <div class="form-group">
-                <label for="burger-name">Burger Name:</label>
-                <input type="text" class="form-control" id="burger-name" name="name">
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm">Add Burger</button>
-        </form>
-    </div>
-</div>
-
-
